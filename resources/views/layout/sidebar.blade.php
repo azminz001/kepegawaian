@@ -191,14 +191,6 @@
                 </a>
             </li>
             @endif
-            <li class="nav-item {{ request()->is('rapat/jadwal_rapat*') ? 'active' : '' }}"
-                style="color: #dbdbdb;">
-                <a href="{{ url('/rapat/jadwal_rapat') }}"
-                    class="nav-link" style="color: #dbdbdb;">
-                    <i class="link-icon mdi mdi-calendar"></i>
-                    <span class="link-title">Jadwal Rapat</span>
-                </a>
-            </li>
             {{-- <li class="nav-item">
           <a href="#" onclick="alert('cooming soon...')"  class="nav-link" style="color: #dbdbdb;">
             <i class="link-icon mdi mdi-trending-up"></i>
@@ -234,11 +226,24 @@
                     <span class="link-title">Permohonan Nomor Surat</span>
                 </a>
             </li>
-            <li class="nav-item nav-item {{ request()->routeIs('persuratan.buat_suket') ? 'active' : '' }}">
-                <a href="{{ route('persuratan.buat_suket.index') }}" class="nav-link"
-                    style="color: #dbdbdb;">
-                    <i class="link-icon" data-feather="mail"></i>
+            <li class="nav-item {{ request()->routeIs('persuratan.buat_suket') ? 'active' : '' }}" style="color: #dbdbdb;">
+                <a href="{{ route('persuratan.buat_suket.index') }}"
+                    class="nav-link" style="color: #dbdbdb;">
+                    <i class="link-icon mdi mdi-file-document"></i>
                     <span class="link-title">Buat SUKET</span>
+                </a>
+            </li>
+            <li class="nav-item {{ request()->routeIs('data_pegawai.permohonan_kontrak') ? 'active' : '' }}" style="color: #dbdbdb;">
+                <a href="{{ route('data_pegawai.permohonan_kontrak', $menu_pegawai->id) }}"
+                    class="nav-link" style="color: #dbdbdb;">
+                    <i class="link-icon mdi mdi-file-plus"></i>
+                    <span class="link-title">Permohonan Kontrak Kerja</span>
+                </a>
+            </li>
+            <li class="nav-item {{ request()->routeIs('jadwal_rapat.index') ? 'active' : '' }}">
+                <a href="{{ route('rapat.jadwal_rapat.index') }}" class="nav-link" style="color: #dbdbdb;">
+                    <i class="link-icon" data-feather="calendar"></i>
+                    <span class="link-title">Jadwal Rapat</span>
                 </a>
             </li>
 
@@ -370,7 +375,7 @@
                     role="button"
                     aria-expanded="{{ request()->routeIs('persuratan.surat_keterangan.*') || request()->routeIs('persuratan.buat_suket.*') ? 'true' : 'false' }}"
                     aria-controls="suket">
-                    <i class="link-icon mdi mdi-hospital-building"></i>
+                    <i class="link-icon mdi mdi-file-document"></i>
                     <span class="link-title">Surat Keterangan</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
@@ -391,14 +396,33 @@
                     </ul>
                 </div>
             </li>
-            @if(Auth::user()->level == 3)
-            <li class="nav-item {{ request()->routeIs('jadwal_rapat.index') ? 'active' : '' }}">
-                <a href="{{ route('rapat.jadwal_rapat.index') }}" class="nav-link" style="color: #dbdbdb;">
-                    <i class="link-icon" data-feather="calendar"></i>
-                    <span class="link-title">Jadwal Rapat</span>
+            <li
+                class="nav-item">
+                <a class="nav-link" style="color: #dbdbdb;" data-bs-toggle="collapse" href="#perjadin"
+                    role="button"
+                    aria-expanded="#"
+                    aria-controls="suket">
+                    <i class="link-icon mdi mdi-file-document"></i>
+                    <span class="link-title">Perjalanan Dinas</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
+
+                <div class="collapse"
+                    id="perjadin">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="#"
+                                class="nav-link"
+                                style="color: #dbdbdb;">Mater Data</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#"
+                                class="nav-link"
+                                style="color: #dbdbdb;">Pengajuan SPPD</a>
+                        </li>
+                    </ul>
+                </div>
             </li>
-            @endif
             @endif
 
 
