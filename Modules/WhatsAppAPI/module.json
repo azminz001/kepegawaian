@@ -1,0 +1,13 @@
+{
+    "name": "WhatsAppAPI",
+    "alias": "whatsappapi",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\WhatsAppAPI\\Providers\\WhatsAppAPIServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

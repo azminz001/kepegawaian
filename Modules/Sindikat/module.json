@@ -1,0 +1,13 @@
+{
+    "name": "Sindikat",
+    "alias": "sindikat",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Sindikat\\Providers\\SindikatServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -1,0 +1,13 @@
+{
+    "name": "Persuratan",
+    "alias": "persuratan",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Persuratan\\Providers\\PersuratanServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

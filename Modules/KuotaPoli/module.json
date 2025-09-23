@@ -1,0 +1,13 @@
+{
+    "name": "KuotaPoli",
+    "alias": "kuotapoli",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\KuotaPoli\\Providers\\KuotaPoliServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
