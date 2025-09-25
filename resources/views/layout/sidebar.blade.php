@@ -220,30 +220,29 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ request()->is('persuratan/nomor*') ? 'active' : '' }}">
                 <a href="{{ url('/persuratan/nomor') }}" class="nav-link" style="color: #dbdbdb;">
                     <i class="link-icon mdi mdi-email-open"></i>
                     <span class="link-title">Permohonan Nomor Surat</span>
                 </a>
             </li>
-            <li class="nav-item {{ request()->routeIs('persuratan.buat_suket') ? 'active' : '' }}" style="color: #dbdbdb;">
+            <li class="nav-item {{ request()->routeIs('persuratan.buat_suket*') ? 'active' : '' }}" style="color: #dbdbdb;">
                 <a href="{{ route('persuratan.buat_suket.index') }}"
                     class="nav-link" style="color: #dbdbdb;">
                     <i class="link-icon mdi mdi-file-document"></i>
                     <span class="link-title">Buat SUKET</span>
                 </a>
             </li>
-            <li class="nav-item {{ request()->routeIs('data_pegawai.permohonan_kontrak') ? 'active' : '' }}" style="color: #dbdbdb;">
-                <a href="{{ route('data_pegawai.permohonan_kontrak', $menu_pegawai->id) }}"
-                    class="nav-link" style="color: #dbdbdb;">
-                    <i class="link-icon mdi mdi-file-plus"></i>
-                    <span class="link-title">Permohonan Kontrak Kerja</span>
-                </a>
-            </li>
-            <li class="nav-item {{ request()->routeIs('jadwal_rapat.index') ? 'active' : '' }}">
+            <li class="nav-item {{ request()->routeIs('rapat.jadwal_rapat*') ? 'active' : '' }}">
                 <a href="{{ route('rapat.jadwal_rapat.index') }}" class="nav-link" style="color: #dbdbdb;">
                     <i class="link-icon" data-feather="calendar"></i>
                     <span class="link-title">Jadwal Rapat</span>
+                </a>
+            </li>
+            <li class="nav-item {{ request()->routeIs('persuratan.perjalanan_dinas*') ? 'active' : '' }}" style="color: #dbdbdb;">
+                <a href="{{ route('persuratan.perjalanan_dinas.index') }}" class="nav-link" style="color: #dbdbdb;">
+                    <i class="link-icon" data-feather="truck"></i>
+                    <span class="link-title">Perjalanan Dinas</span>
                 </a>
             </li>
 

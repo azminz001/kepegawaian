@@ -31,12 +31,6 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/surat_masuk/destroy/{id}', 'SuratMasukController@destroy')->name('persuratan.surat_masuk.destroy')->middleware('checkUserLevel:2,4');
         Route::put('/surat_masuk/update/{id}', 'SuratMasukController@update')->name('persuratan.surat_masuk.update')->middleware('checkUserLevel:2,4');
 
-        //Route::get('/perjalanan_dinas', 'PerjalananDinasController@index')->name('perjalanan_dinas.index')->middleware('checkUserLevel:2,4');
-        //Route::post('/perjalanan_dinas', 'PerjalananDinasController@index')->name('perjalanan_dinas.cari')->middleware('checkUserLevel:2,4');
-        //Route::post('/perjalanan_dinas/store', 'PerjalananDinasController@store')->name('perjalanan_dinas.store')->middleware('checkUserLevel:2,4');
-        //Route::delete('/perjalanan_dinas/destroy/{id}', 'PerjalananDinasController@destroy')->name('perjalanan_dinas.destroy')->middleware('checkUserLevel:2,4');
-        //Route::put('/perjalanan_dinas/update/{id}', 'PerjalananDinasController@update')->name('perjalanan_dinas.update')->middleware('checkUserLevel:2,4');
-
         Route::get('/surat_keterangan', 'SuratKeteranganController@index')->name('persuratan.surat_keterangan.index');
         Route::post('/surat_keterangan/store', 'SuratKeteranganController@store')->name('persuratan.surat_keterangan.store');
         Route::delete('/surat_keterangan/destroy/{id}', 'SuratKeteranganController@destroy')->name('persuratan.surat_keterangan.destroy');
@@ -51,5 +45,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/buat_suket/download/{id}', 'BuatSuketController@download')->name('persuratan.buat_suket.download');
         Route::post('/buat_suket/setujui/{id}', 'BuatSuketController@setujui')->name('persuratan.buat_suket.setujui');
         Route::get('/buat_suket/cetak/{id}', 'BuatSuketController@cetak')->name('buat_suket.cetak');
+
+        Route::get('/perjalanan_dinas', 'PerjalananDinasController@index')->name('persuratan.perjalanan_dinas.index');
     });
 });
