@@ -26,14 +26,68 @@ use Carbon\Carbon;
             <div class="col-md-4 grid-margin">
                 <div class="card">
                     <div class="card-body">
+                        <h5 class="mb-3">PENGAJUAN PERJALANAN DINAS</h5>
                         <div class="row">
-                            <h5 class="mb-3">PENGAJUAN PERJALANAN DINAS</h5>
-                            <select name="surat" class="form-select select2 mb-3" data-width="100%" required>
-                                <option value="" disabled selected>-- Pilih Dasar Surat --</option>
-                            </select>
-                            <select class="js-example-basic-multiple form-select select2" name="pegawai_id[]" multiple="multiple" data-width="100%">
-                                <option value=""></option>
-                            </select>
+                            <div class="col-12 mb-3">
+                                <select name="dasar_surat" class="form-select select2 mb-3" data-placeholder="-- Pilih Dasar Surat --" style="width: 100%;" required>
+                                    <option></option>
+                                    @foreach($suratMasuk as $surat)
+                                    <option value="{{ $surat->id }}">
+                                        {{ $surat->perihal }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <select data-placeholder="-- Pilih Pegawai --"
+                                    class="js-example-basic-multiple form-select select2"
+                                    name="pegawai_id[]"
+                                    multiple="multiple"
+                                    data-width="100%" required>
+                                    <option></option>
+                                    @foreach ($pegawais as $pegawai)
+                                    <option value="{{$pegawai->id}}">
+                                        {{ $pegawai->gelar_depan ? $pegawai->gelar_depan . '. ' : '' }}
+                                        {{ Str::title(strtolower($pegawai->nama)) }}
+                                        {{ $pegawai->gelar_belakang ? ', ' . $pegawai->gelar_belakang : '' }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <select name="supir" class="form-select select2 mb-3" data-placeholder="-- Pilih Supir --" style="width: 100%;">
+                                    <option></option>
+                                    @foreach ($pegawais as $pegawai)
+                                    <option value="{{$pegawai->id}}">
+                                        {{ $pegawai->gelar_depan ? $pegawai->gelar_depan . '. ' : '' }}
+                                        {{ Str::title(strtolower($pegawai->nama)) }}
+                                        {{ $pegawai->gelar_belakang ? ', ' . $pegawai->gelar_belakang : '' }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <textarea name="tujuan" id="tujuan" class="form-control" rows="3" placeholder="Tuliskan tujuan perjalanan dinas..." required></textarea>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="tanggal_berangkat" class="form-label">Tanggal Berangkat</label>
+                                <input class="form-control" name="tanggal_berangkat" type="date" required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="tanggal_pulang" class="form-label">Tanggal Pulang</label>
+                                <input class="form-control" name="tanggal_pulang" type="date" required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="waktu_mulai" class="form-label">Waktu Mulai</label>
+                                <input class="form-control" name="waktu_mulai" type="time" required>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label for="waktu_selesai" class="form-label">Waktu Selesai</label>
+                                <input class="form-control" name="waktu_selesai" type="time" required>
+                            </div>
+                            <div class="col-12 mb-3">
+                                 <input class="form-control" name="tempat" type="text" placeholder="Tempat Pelaksanaan Acara" required>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,3 +167,10 @@ use Carbon\Carbon;
 @endpush
 
 <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $('.select2').select2({
+            width: '100%',
+        });
+    });
+</script>
